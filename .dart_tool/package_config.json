@@ -179,10 +179,10 @@
       "name": "marcas",
       "rootUri": "../",
       "packageUri": "lib/",
-      "languageVersion": "3.3"
+      "languageVersion": "3.4"
     }
   ],
-  "generated": "2024-10-23T02:12:00.010240Z",
+  "generated": "2024-10-23T15:02:00.856970Z",
   "generator": "pub",
   "generatorVersion": "3.5.3",
   "flutterRoot": "file:///C:/flutter",

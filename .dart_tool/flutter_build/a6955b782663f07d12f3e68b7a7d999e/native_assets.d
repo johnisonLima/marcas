@@ -1,0 +1,1 @@
+ E:\\MEGAsync\\projectServ\\www\\projetos\\mobile\\marcas\\.dart_tool\\flutter_build\\a6955b782663f07d12f3e68b7a7d999e\\native_assets.yaml: 
