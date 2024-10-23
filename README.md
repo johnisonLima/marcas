@@ -1,3 +1,3 @@
 # marcas
 
-## Projeto em desenvolvimento na disciplina Programação de Dispositivos Móveis
+## Projeto em desenvolvimento na disciplina Programação para Dispositivos Móveis
