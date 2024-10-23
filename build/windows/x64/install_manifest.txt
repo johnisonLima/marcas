@@ -1,0 +1,10 @@
+E:/MEGAsync/projectServ/www/projetos/mobile/marcas/build/windows/x64/runner/Debug/data/icudtl.dat
+E:/MEGAsync/projectServ/www/projetos/mobile/marcas/build/windows/x64/runner/Debug/flutter_windows.dll
+E:/MEGAsync/projectServ/www/projetos/mobile/marcas/build/windows/x64/runner/Debug/data/flutter_assets/AssetManifest.bin
+E:/MEGAsync/projectServ/www/projetos/mobile/marcas/build/windows/x64/runner/Debug/data/flutter_assets/AssetManifest.json
+E:/MEGAsync/projectServ/www/projetos/mobile/marcas/build/windows/x64/runner/Debug/data/flutter_assets/FontManifest.json
+E:/MEGAsync/projectServ/www/projetos/mobile/marcas/build/windows/x64/runner/Debug/data/flutter_assets/fonts/MaterialIcons-Regular.otf
+E:/MEGAsync/projectServ/www/projetos/mobile/marcas/build/windows/x64/runner/Debug/data/flutter_assets/kernel_blob.bin
+E:/MEGAsync/projectServ/www/projetos/mobile/marcas/build/windows/x64/runner/Debug/data/flutter_assets/NOTICES.Z
+E:/MEGAsync/projectServ/www/projetos/mobile/marcas/build/windows/x64/runner/Debug/data/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf
+E:/MEGAsync/projectServ/www/projetos/mobile/marcas/build/windows/x64/runner/Debug/data/flutter_assets/shaders/ink_sparkle.frag

@@ -1,0 +1,28 @@
+^E:\MEGASYNC\PROJECTSERV\WWW\PROJETOS\MOBILE\MARCAS\BUILD\WINDOWS\X64\CMAKEFILES\786199C080999E45F9C5A74197281929\FLUTTER_WINDOWS.DLL.RULE
+setlocal
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E env FLUTTER_ROOT=C:\flutter PROJECT_DIR=E:\MEGAsync\projectServ\www\projetos\mobile\marcas FLUTTER_ROOT=C:\flutter FLUTTER_EPHEMERAL_DIR=E:\MEGAsync\projectServ\www\projetos\mobile\marcas\windows\flutter\ephemeral PROJECT_DIR=E:\MEGAsync\projectServ\www\projetos\mobile\marcas FLUTTER_TARGET=E:\MEGAsync\projectServ\www\projetos\mobile\marcas\lib\main.dart DART_OBFUSCATION=false TRACK_WIDGET_CREATION=true TREE_SHAKE_ICONS=false PACKAGE_CONFIG=E:\MEGAsync\projectServ\www\projetos\mobile\marcas\.dart_tool\package_config.json C:/flutter/packages/flutter_tools/bin/tool_backend.bat windows-x64 Debug
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^E:\MEGASYNC\PROJECTSERV\WWW\PROJETOS\MOBILE\MARCAS\BUILD\WINDOWS\X64\CMAKEFILES\1BB434F699D9062B01384F091FC3A207\FLUTTER_ASSEMBLE.RULE
+setlocal
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^E:\MEGASYNC\PROJECTSERV\WWW\PROJETOS\MOBILE\MARCAS\WINDOWS\FLUTTER\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SE:/MEGAsync/projectServ/www/projetos/mobile/marcas/windows -BE:/MEGAsync/projectServ/www/projetos/mobile/marcas/build/windows/x64 --check-stamp-file E:/MEGAsync/projectServ/www/projetos/mobile/marcas/build/windows/x64/flutter/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
