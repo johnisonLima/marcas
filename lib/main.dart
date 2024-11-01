@@ -22,6 +22,7 @@ class Marcas extends StatelessWidget {
         theme: ThemeData(
           colorScheme: const ColorScheme.light(),
           useMaterial3: true,
+          appBarTheme: const AppBarTheme(backgroundColor: Colors.red),
           floatingActionButtonTheme: const FloatingActionButtonThemeData(
           backgroundColor: Colors.blueGrey)
         ),
@@ -46,6 +47,7 @@ class _EstadoTelaPrincipal extends State<TelaPrincipal> {
     estadoApp = context.watch<Estado>();
 
     Widget tela = const SizedBox.shrink();
+
     if (estadoApp.mostrandoProdutos()) {
       tela = const Produtos();
     } 
