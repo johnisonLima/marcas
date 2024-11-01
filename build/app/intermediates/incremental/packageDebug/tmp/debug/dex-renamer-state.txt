@@ -1,4 +1,4 @@
-#Wed Oct 23 12:19:58 BRT 2024
+#Fri Nov 01 11:35:22 BRT 2024
 base.0=E\:\\MEGAsync\\projectServ\\www\\projetos\\mobile\\marcas\\build\\app\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
 base.1=E\:\\MEGAsync\\projectServ\\www\\projetos\\mobile\\marcas\\build\\app\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
 base.2=E\:\\MEGAsync\\projectServ\\www\\projetos\\mobile\\marcas\\build\\app\\intermediates\\dex\\debug\\mergeProjectDexDebug\\1\\classes.dex
