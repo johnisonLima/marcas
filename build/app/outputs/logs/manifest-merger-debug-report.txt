@@ -23,9 +23,10 @@ INJECTED from E:\MEGAsync\projectServ\www\projetos\mobile\marcas\android\app\src
 INJECTED from E:\MEGAsync\projectServ\www\projetos\mobile\marcas\android\app\src\main\AndroidManifest.xml:1:1-45:12
 INJECTED from E:\MEGAsync\projectServ\www\projetos\mobile\marcas\android\app\src\main\AndroidManifest.xml:1:1-45:12
 MERGED from E:\MEGAsync\projectServ\www\projetos\mobile\marcas\android\app\src\main\AndroidManifest.xml:1:1-45:12
-MERGED from [androidx.fragment:fragment:1.7.1] C:\Users\johni\.gradle\caches\transforms-3\53183c00a910e60b30892d0c9788338a\transformed\fragment-1.7.1\AndroidManifest.xml:2:1-7:12
+MERGED from [:flutter_share] E:\MEGAsync\projectServ\www\projetos\mobile\marcas\build\flutter_share\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [androidx.window:window:1.2.0] C:\Users\johni\.gradle\caches\transforms-3\1763abeebf5cfd4f4dbca3627b0a271d\transformed\jetified-window-1.2.0\AndroidManifest.xml:17:1-31:12
 MERGED from [androidx.window:window-java:1.2.0] C:\Users\johni\.gradle\caches\transforms-3\2d14c1947012aabd9f1ba62db020a06a\transformed\jetified-window-java-1.2.0\AndroidManifest.xml:17:1-21:12
+MERGED from [androidx.fragment:fragment:1.7.1] C:\Users\johni\.gradle\caches\transforms-3\53183c00a910e60b30892d0c9788338a\transformed\fragment-1.7.1\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.activity:activity:1.8.1] C:\Users\johni\.gradle\caches\transforms-3\d8f1cb00a2a13bfed5df287fb658c720\transformed\jetified-activity-1.8.1\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.loader:loader:1.0.0] C:\Users\johni\.gradle\caches\transforms-3\2d6dc9ad042429b17187b864e01d2f73\transformed\loader-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\johni\.gradle\caches\transforms-3\96d1caceb73721a56d201dacba76eeb3\transformed\viewpager-1.0.0\AndroidManifest.xml:17:1-22:12
@@ -44,9 +45,9 @@ MERGED from [androidx.annotation:annotation-experimental:1.4.0] C:\Users\johni\.
 MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\johni\.gradle\caches\transforms-3\6668973fb6e2a0d1306ddcf83fe9c937\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:17:1-55:12
 MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\johni\.gradle\caches\transforms-3\c867725c885ec362d5741baee7b4b8b3\transformed\jetified-startup-runtime-1.1.1\AndroidManifest.xml:17:1-33:12
 MERGED from [androidx.tracing:tracing:1.2.0] C:\Users\johni\.gradle\caches\transforms-3\8b4e4c391a8a4ec2c9fed4eb33333940\transformed\jetified-tracing-1.2.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.arch.core:core-runtime:2.2.0] C:\Users\johni\.gradle\caches\transforms-3\2315fb6c467d8d4b7a993f7ce26ea3de\transformed\core-runtime-2.2.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\johni\.gradle\caches\transforms-3\1a51ed5fb09baf369f0ac83cf19b75e3\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:17:1-27:12
 MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\johni\.gradle\caches\transforms-3\106623e98c1dc043580f2fa2ddfe85dc\transformed\interpolator-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\johni\.gradle\caches\transforms-3\1a51ed5fb09baf369f0ac83cf19b75e3\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.arch.core:core-runtime:2.2.0] C:\Users\johni\.gradle\caches\transforms-3\2315fb6c467d8d4b7a993f7ce26ea3de\transformed\core-runtime-2.2.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.window.extensions.core:core:1.0.0] C:\Users\johni\.gradle\caches\transforms-3\e24a5a093ec7e9bde6782bf2bbe98a74\transformed\jetified-core-1.0.0\AndroidManifest.xml:2:1-7:12
 INJECTED from E:\MEGAsync\projectServ\www\projetos\mobile\marcas\android\app\src\debug\AndroidManifest.xml:1:1-7:12
 INJECTED from E:\MEGAsync\projectServ\www\projetos\mobile\marcas\android\app\src\debug\AndroidManifest.xml:1:1-7:12
@@ -81,12 +82,14 @@ uses-sdk
 INJECTED from E:\MEGAsync\projectServ\www\projetos\mobile\marcas\android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from E:\MEGAsync\projectServ\www\projetos\mobile\marcas\android\app\src\main\AndroidManifest.xml
 INJECTED from E:\MEGAsync\projectServ\www\projetos\mobile\marcas\android\app\src\main\AndroidManifest.xml
-MERGED from [androidx.fragment:fragment:1.7.1] C:\Users\johni\.gradle\caches\transforms-3\53183c00a910e60b30892d0c9788338a\transformed\fragment-1.7.1\AndroidManifest.xml:5:5-44
-MERGED from [androidx.fragment:fragment:1.7.1] C:\Users\johni\.gradle\caches\transforms-3\53183c00a910e60b30892d0c9788338a\transformed\fragment-1.7.1\AndroidManifest.xml:5:5-44
+MERGED from [:flutter_share] E:\MEGAsync\projectServ\www\projetos\mobile\marcas\build\flutter_share\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:flutter_share] E:\MEGAsync\projectServ\www\projetos\mobile\marcas\build\flutter_share\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.window:window:1.2.0] C:\Users\johni\.gradle\caches\transforms-3\1763abeebf5cfd4f4dbca3627b0a271d\transformed\jetified-window-1.2.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.window:window:1.2.0] C:\Users\johni\.gradle\caches\transforms-3\1763abeebf5cfd4f4dbca3627b0a271d\transformed\jetified-window-1.2.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.window:window-java:1.2.0] C:\Users\johni\.gradle\caches\transforms-3\2d14c1947012aabd9f1ba62db020a06a\transformed\jetified-window-java-1.2.0\AndroidManifest.xml:19:5-44
 MERGED from [androidx.window:window-java:1.2.0] C:\Users\johni\.gradle\caches\transforms-3\2d14c1947012aabd9f1ba62db020a06a\transformed\jetified-window-java-1.2.0\AndroidManifest.xml:19:5-44
+MERGED from [androidx.fragment:fragment:1.7.1] C:\Users\johni\.gradle\caches\transforms-3\53183c00a910e60b30892d0c9788338a\transformed\fragment-1.7.1\AndroidManifest.xml:5:5-44
+MERGED from [androidx.fragment:fragment:1.7.1] C:\Users\johni\.gradle\caches\transforms-3\53183c00a910e60b30892d0c9788338a\transformed\fragment-1.7.1\AndroidManifest.xml:5:5-44
 MERGED from [androidx.activity:activity:1.8.1] C:\Users\johni\.gradle\caches\transforms-3\d8f1cb00a2a13bfed5df287fb658c720\transformed\jetified-activity-1.8.1\AndroidManifest.xml:20:5-44
 MERGED from [androidx.activity:activity:1.8.1] C:\Users\johni\.gradle\caches\transforms-3\d8f1cb00a2a13bfed5df287fb658c720\transformed\jetified-activity-1.8.1\AndroidManifest.xml:20:5-44
 MERGED from [androidx.loader:loader:1.0.0] C:\Users\johni\.gradle\caches\transforms-3\2d6dc9ad042429b17187b864e01d2f73\transformed\loader-1.0.0\AndroidManifest.xml:20:5-44
@@ -123,12 +126,12 @@ MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\johni\.gradle\cach
 MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\johni\.gradle\caches\transforms-3\c867725c885ec362d5741baee7b4b8b3\transformed\jetified-startup-runtime-1.1.1\AndroidManifest.xml:21:5-23:41
 MERGED from [androidx.tracing:tracing:1.2.0] C:\Users\johni\.gradle\caches\transforms-3\8b4e4c391a8a4ec2c9fed4eb33333940\transformed\jetified-tracing-1.2.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.tracing:tracing:1.2.0] C:\Users\johni\.gradle\caches\transforms-3\8b4e4c391a8a4ec2c9fed4eb33333940\transformed\jetified-tracing-1.2.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.arch.core:core-runtime:2.2.0] C:\Users\johni\.gradle\caches\transforms-3\2315fb6c467d8d4b7a993f7ce26ea3de\transformed\core-runtime-2.2.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.arch.core:core-runtime:2.2.0] C:\Users\johni\.gradle\caches\transforms-3\2315fb6c467d8d4b7a993f7ce26ea3de\transformed\core-runtime-2.2.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\johni\.gradle\caches\transforms-3\1a51ed5fb09baf369f0ac83cf19b75e3\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\johni\.gradle\caches\transforms-3\1a51ed5fb09baf369f0ac83cf19b75e3\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\johni\.gradle\caches\transforms-3\106623e98c1dc043580f2fa2ddfe85dc\transformed\interpolator-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\johni\.gradle\caches\transforms-3\106623e98c1dc043580f2fa2ddfe85dc\transformed\interpolator-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\johni\.gradle\caches\transforms-3\1a51ed5fb09baf369f0ac83cf19b75e3\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\johni\.gradle\caches\transforms-3\1a51ed5fb09baf369f0ac83cf19b75e3\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.2.0] C:\Users\johni\.gradle\caches\transforms-3\2315fb6c467d8d4b7a993f7ce26ea3de\transformed\core-runtime-2.2.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.2.0] C:\Users\johni\.gradle\caches\transforms-3\2315fb6c467d8d4b7a993f7ce26ea3de\transformed\core-runtime-2.2.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.window.extensions.core:core:1.0.0] C:\Users\johni\.gradle\caches\transforms-3\e24a5a093ec7e9bde6782bf2bbe98a74\transformed\jetified-core-1.0.0\AndroidManifest.xml:5:5-44
 MERGED from [androidx.window.extensions.core:core:1.0.0] C:\Users\johni\.gradle\caches\transforms-3\e24a5a093ec7e9bde6782bf2bbe98a74\transformed\jetified-core-1.0.0\AndroidManifest.xml:5:5-44
 INJECTED from E:\MEGAsync\projectServ\www\projetos\mobile\marcas\android\app\src\debug\AndroidManifest.xml

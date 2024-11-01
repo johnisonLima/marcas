@@ -16,19 +16,17 @@ class Marcas extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (_) => Estado(),
-      child: MaterialApp(
-        title: 'Melhores Marcas',
-        theme: ThemeData(
-          colorScheme: const ColorScheme.light(),
-          useMaterial3: true,
-          appBarTheme: const AppBarTheme(backgroundColor: Colors.red),
-          floatingActionButtonTheme: const FloatingActionButtonThemeData(
-          backgroundColor: Colors.blueGrey)
-        ),
-        home: const TelaPrincipal(title: 'Flutter Demo Home Page'),
-      )
-    );
+        create: (_) => Estado(),
+        child: MaterialApp(
+          title: 'Melhores Marcas',
+          theme: ThemeData(
+              colorScheme: const ColorScheme.light(),
+              useMaterial3: true,
+              appBarTheme: const AppBarTheme(backgroundColor: Colors.white),
+              floatingActionButtonTheme: const FloatingActionButtonThemeData(
+                  backgroundColor: Colors.blueGrey)),
+          home: const TelaPrincipal(title: 'Melhores Marcas'),
+        ));
   }
 }
 
@@ -46,14 +44,16 @@ class _EstadoTelaPrincipal extends State<TelaPrincipal> {
   Widget build(BuildContext context) {
     estadoApp = context.watch<Estado>();
 
-    Widget tela = const SizedBox.shrink();
+    final media = MediaQuery.of(context);
+    estadoApp.setDimensoes(media.size.height, media.size.width);
 
+    Widget tela = const SizedBox.shrink();
     if (estadoApp.mostrandoProdutos()) {
       tela = const Produtos();
-    } 
-    else if (estadoApp.mostrandoDetalhes()) {
+    } else if (estadoApp.mostrandoDetalhes()) {
       tela = const Detalhes();
     }
+
     return tela;
   }
 }

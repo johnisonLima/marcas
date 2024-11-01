@@ -1,9 +1,12 @@
+// ignore_for_file: dead_code
+
 import 'dart:convert';
 
 import 'package:flat_list/flat_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:marcas/componentes/card_produto.dart';
+import 'package:marcas/estado.dart';
 
 class Produtos extends StatefulWidget {
   const Produtos({super.key});
@@ -14,14 +17,15 @@ class Produtos extends StatefulWidget {
   }
 }
 
-const int tamanhoDaPagina = 4;
+const int tamanhoDaPagina = 6;
 
 class _EstadoProdutos extends State<Produtos> {
   late dynamic _feedDeProdutos;
   bool _carregando = false;
   List<dynamic> _produtos = [];
 
-  final String _filtro = '';
+  final TextEditingController _controladorDoFiltro = TextEditingController();
+  String _filtro = "";
 
   int _proximaPagina = 1;
 
@@ -45,20 +49,17 @@ class _EstadoProdutos extends State<Produtos> {
       _carregando = true;
     });
 
-    dynamic produtos = _feedDeProdutos["produtos"];
-
     if (_filtro.isNotEmpty) {
-      produtos = produtos
-          .where((produtos) =>
-              produtos["product"]["name"].toLowerCase().contains(_filtro))
+      _produtos = _produtos
+          .where((produto) =>
+              produto["product"]["name"].toLowerCase().contains(_filtro))
           .toList();
-    }
-
-    final totalDeProdutosParaCarregar = _proximaPagina * tamanhoDaPagina;
-    if (_feedDeProdutos["produtos"].length >= totalDeProdutosParaCarregar) {
-      _produtos =
-          // _feedDeProdutos["produtos"].sublist(0, totalDeProdutosParaCarregar);
-          _produtos = produtos.sublist(0, totalDeProdutosParaCarregar);
+    } else {
+      final totalDeProdutosParaCarregar = _proximaPagina * tamanhoDaPagina;
+      if (_feedDeProdutos["produtos"].length >= totalDeProdutosParaCarregar) {
+        _produtos =
+            _feedDeProdutos["produtos"].sublist(0, totalDeProdutosParaCarregar);
+      }
     }
 
     setState(() {
@@ -71,49 +72,61 @@ class _EstadoProdutos extends State<Produtos> {
     _produtos = [];
     _proximaPagina = 1;
 
+    _controladorDoFiltro.text = "";
+    _filtro = "";
+
     _carregarProdutos();
   }
 
   void _aplicarFiltro(String filtro) {
-    filtro = filtro;
+    _filtro = filtro;
 
     _carregarProdutos();
   }
 
   @override
   Widget build(BuildContext context) {
+    bool usuarioLogado = false; // corrigir aqui
+
     return _carregando
         ? const Center(child: CircularProgressIndicator())
         : Scaffold(
-            appBar: AppBar(
-              title: const Text('Produtos',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-              actions: [
-                Expanded(
+            appBar: AppBar(actions: [
+              Expanded(
                   child: Padding(
-                    padding: const EdgeInsets.only(
-                        top: 10.0, bottom: 10.0, left: 90.0, right: 10.0),
-                    child: TextField(
-                      onSubmitted: (value) {
-                        _aplicarFiltro(value);
+                      padding: const EdgeInsets.only(
+                          top: 10, bottom: 10, left: 60, right: 20),
+                      child: TextField(
+                        controller: _controladorDoFiltro,
+                        onSubmitted: (filtro) {
+                          _aplicarFiltro(filtro);
+                        },
+                        decoration: const InputDecoration(
+                            border: OutlineInputBorder(),
+                            suffixIcon: Icon(Icons.search)),
+                      ))),
+              usuarioLogado
+                  ? IconButton(
+                      onPressed: () {
+                        // preencher aqui
                       },
-                      decoration: const InputDecoration(
-                          border: OutlineInputBorder(),
-                          suffixIcon: Icon(Icons.search)),
-                    ),
-                  ),
-                ),
-              ],
-            ),
+                      icon: const Icon(Icons.logout))
+                  : IconButton(
+                      onPressed: () {
+                        // preencher aqui
+                      },
+                      icon: const Icon(Icons.login))
+            ]),
             body: FlatList(
-              data: _produtos,
-              numColumns: 2,
-              onEndReached: () => _carregarProdutos(),
-              onRefresh: () => _atualizarProdutos(),
-              buildItem: (item, index) {
-                return SizedBox(height: 370, child: CardProduto(produto: item));
-              },
-            ),
-          );
+                data: _produtos,
+                loading: _carregando,
+                numColumns: 2,
+                onRefresh: () => _atualizarProdutos(),
+                onEndReached: () => _carregarProdutos(),
+                buildItem: (item, index) {
+                  return SizedBox(
+                      height: estadoApp.altura * 0.45,
+                      child: CardProduto(produto: item));
+                }));
   }
 }
