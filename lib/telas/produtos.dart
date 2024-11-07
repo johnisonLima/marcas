@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:marcas/componentes/card_produto.dart';
 import 'package:marcas/estado.dart';
+import 'package:marcas/usuario.dart';
+import 'package:toast/toast.dart';
 
 class Produtos extends StatefulWidget {
   const Produtos({super.key});
@@ -32,6 +34,8 @@ class _EstadoProdutos extends State<Produtos> {
   @override
   void initState() {
     super.initState();
+
+    ToastContext().init(context);
 
     _lerFeedEstatico();
   }
@@ -86,7 +90,7 @@ class _EstadoProdutos extends State<Produtos> {
 
   @override
   Widget build(BuildContext context) {
-    bool usuarioLogado = false; // corrigir aqui
+    bool usuarioLogado = estadoApp.usuario != null;
 
     return _carregando
         ? const Center(child: CircularProgressIndicator())
@@ -108,12 +112,29 @@ class _EstadoProdutos extends State<Produtos> {
               usuarioLogado
                   ? IconButton(
                       onPressed: () {
-                        // preencher aqui
+
+                        Toast.show("Você foi desconectado com sucesso!", duration: Toast.lengthShort);
+
+                        setState(() {
+                          estadoApp.logoff();                          
+                        });
                       },
                       icon: const Icon(Icons.logout))
                   : IconButton(
                       onPressed: () {
-                        // preencher aqui
+                        Usuario usuario = Usuario('Johnison', 'johnisonbsi@outllok.com');
+
+                        const snackBar = SnackBar(
+                            content: Text('Você foi conectado com sucesso!'),
+                        );
+                        ScaffoldMessenger.of(context).showSnackBar(snackBar);
+
+
+                        // Toast.show("Você foi conectado com sucesso!", duration: Toast.lengthShort);
+
+                        setState(() {                          
+                          estadoApp.login(usuario);
+                        });
                       },
                       icon: const Icon(Icons.login))
             ]),

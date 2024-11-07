@@ -1,13 +1,11 @@
-// remover apos corrigir este codigo
-// ignore_for_file: dead_code, unused_field, prefer_final_fields, unused_import
 import 'dart:convert';
 
-import 'package:marcas/estado.dart';
 import 'package:flat_list/flat_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_share/flutter_share.dart';
 import 'package:intl/intl.dart';
+import 'package:marcas/estado.dart';
 import 'package:page_view_dot_indicator/page_view_dot_indicator.dart';
 import 'package:toast/toast.dart';
 
@@ -23,8 +21,8 @@ class Detalhes extends StatefulWidget {
 enum _EstadoProduto { naoVerificado, temProduto, semProduto }
 
 class _DetalhesState extends State<Detalhes> {
-  late dynamic _feedDeProdutos;
-  late dynamic _feedDeComentarios;
+  late dynamic _feedEstatico;
+  late dynamic _comentariosEstaticos;
 
   _EstadoProduto _temProduto = _EstadoProduto.naoVerificado;
   late dynamic _produto;
@@ -60,11 +58,11 @@ class _DetalhesState extends State<Detalhes> {
   Future<void> _lerFeedEstatico() async {
     String conteudoJson =
         await rootBundle.loadString("lib/recursos/jsons/feed.json");
-    _feedDeProdutos = await json.decode(conteudoJson);
+    _feedEstatico = await json.decode(conteudoJson);
 
     conteudoJson =
         await rootBundle.loadString("lib/recursos/jsons/comentarios.json");
-    _feedDeComentarios = await json.decode(conteudoJson);
+    _comentariosEstaticos = await json.decode(conteudoJson);
 
     _carregarProduto();
     _carregarComentarios();
@@ -72,13 +70,13 @@ class _DetalhesState extends State<Detalhes> {
 
   void _carregarProduto() {
     setState(() {
-      _produto = _feedDeProdutos["produtos"]
+      _produto = _feedEstatico['produtos']
           .firstWhere((produto) => produto["_id"] == estadoApp.idProduto);
-    });
 
-    _temProduto = _produto != null
-        ? _EstadoProduto.temProduto
-        : _EstadoProduto.semProduto;
+      _temProduto = _produto != null
+          ? _EstadoProduto.temProduto
+          : _EstadoProduto.semProduto;
+    });
   }
 
   void _carregarComentarios() {
@@ -86,13 +84,17 @@ class _DetalhesState extends State<Detalhes> {
       _carregandoComentarios = true;
     });
 
-    _comentarios = [];
-    _feedDeComentarios["comentarios"].where((comentario) {
-      return comentario["feed"] == estadoApp.idProduto;
-    }).forEach((comentario) => {_comentarios.add(comentario)});
+    var maisComentarios = [];
+    _comentariosEstaticos["comentarios"].where((item) {
+      return item["feed"] == estadoApp.idProduto;
+    }).forEach((item) {
+      maisComentarios.add(item);
+    });
 
     setState(() {
       _carregandoComentarios = false;
+      _comentarios = maisComentarios;
+
       _temComentarios = _comentarios.isNotEmpty;
     });
   }
@@ -131,14 +133,12 @@ class _DetalhesState extends State<Detalhes> {
 
   Widget _exibirMensagemComentariosInexistentes() {
     return const Expanded(
-        child: Center(
-            child:
-                Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+        child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
       Icon(Icons.error, size: 32, color: Colors.red),
       Text("não existem comentários",
           style: TextStyle(
               fontWeight: FontWeight.bold, fontSize: 18, color: Colors.red))
-    ])));
+    ]));
   }
 
   Widget _exibirComentarios() {
@@ -147,8 +147,85 @@ class _DetalhesState extends State<Detalhes> {
       data: _comentarios,
       loading: _carregandoComentarios,
       buildItem: (item, index) {
-        // trocar esta parte pelo codigo correto
-        return const SizedBox.shrink();
+        String dataFormatada = DateFormat('dd/MM/yyyy HH:mm')
+            .format(DateTime.parse(item["datetime"]));
+        bool usuarioLogadoComentou = estadoApp.usuario != null &&
+            estadoApp.usuario!.email == item["user"]["email"];
+
+        return Dismissible(
+          key: Key(item["_id"].toString()),
+          direction: usuarioLogadoComentou
+              ? DismissDirection.endToStart
+              : DismissDirection.none,
+          background: Container(
+              alignment: Alignment.centerRight,
+              child: const Padding(
+                  padding: EdgeInsets.only(right: 12.0),
+                  child: Icon(Icons.delete, color: Colors.red))),
+          child: Card(
+              color: usuarioLogadoComentou ? Colors.green[100] : Colors.white,
+              child: Column(children: [
+                Padding(
+                    padding: const EdgeInsets.all(6),
+                    child: Container(
+                        alignment: Alignment.topLeft,
+                        child: Text(item["content"],
+                            style: const TextStyle(fontSize: 12)))),
+                Padding(
+                    padding: const EdgeInsets.only(bottom: 6.0),
+                    child: Row(
+                      children: [
+                        Padding(
+                            padding:
+                                const EdgeInsets.only(right: 10.0, left: 6.0),
+                            child: Text(
+                              dataFormatada,
+                              style: const TextStyle(fontSize: 12),
+                            )),
+                        Padding(
+                            padding: const EdgeInsets.only(right: 10.0),
+                            child: Text(
+                              item["user"]["name"],
+                              style: const TextStyle(fontSize: 12),
+                            )),
+                      ],
+                    )),
+              ])),
+          onDismissed: (direction) {
+            if (direction == DismissDirection.endToStart) {
+              final comentario = item;
+              setState(() {
+                _comentarios.removeAt(index);
+              });
+
+              showDialog(
+                  context: context,
+                  builder: (BuildContext contexto) {
+                    return AlertDialog(
+                      title: const Text("Deseja apagar o comentário?"),
+                      actions: [
+                        TextButton(
+                            onPressed: () {
+                              setState(() {
+                                _comentarios.insert(index, comentario);
+                              });
+
+                              Navigator.of(contexto).pop();
+                            },
+                            child: const Text("NÃO")),
+                        TextButton(
+                            onPressed: () {
+                              setState(() {});
+
+                              Navigator.of(contexto).pop();
+                            },
+                            child: const Text("SIM"))
+                      ],
+                    );
+                  });
+            }
+          },
+        );
       },
     ));
   }
@@ -156,7 +233,21 @@ class _DetalhesState extends State<Detalhes> {
   void _adicionarComentario() {
     String conteudo = _controladorNovoComentario.text.trim();
     if (conteudo.isNotEmpty) {
-      // preencher aqui
+      final comentario = {
+        "content": conteudo,
+        "user": {
+          "name": estadoApp.usuario!.nome,
+          "email": estadoApp.usuario!.email,
+        },
+        "datetime": DateTime.now().toString(),
+        "feed": estadoApp.idProduto
+      };
+
+      setState(() {
+        _comentarios.insert(0, comentario);
+      });
+
+      _controladorNovoComentario.clear();
     } else {
       Toast.show("Digite um comentário",
           duration: Toast.lengthLong, gravity: Toast.bottom);
@@ -164,7 +255,7 @@ class _DetalhesState extends State<Detalhes> {
   }
 
   Widget _exibirProduto() {
-    bool usuarioLogado = false; // corrigir aqui
+    bool usuarioLogado = estadoApp.usuario != null;
 
     return Scaffold(
       resizeToAvoidBottomInset: false,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:marcas/usuario.dart';
 
 enum Situacao { mostrandoProdutos, mostrandoDetalhes }
 
@@ -11,6 +12,9 @@ class Estado extends ChangeNotifier {
 
   late int _idProduto;
   int get idProduto => _idProduto;
+
+  Usuario? _usuario;
+  Usuario? get usuario => _usuario;
 
   void setDimensoes(double altura, double largura) {
     _altura = altura;
@@ -30,6 +34,18 @@ class Estado extends ChangeNotifier {
   void mostrarDetalhes(int idProduto) {
     _situacao = Situacao.mostrandoDetalhes;
     _idProduto = idProduto;
+
+    notifyListeners();
+  }
+
+  void login(Usuario? usuario){
+    _usuario = usuario;
+
+    notifyListeners();
+  }
+
+  void logoff(){
+    _usuario = null;
 
     notifyListeners();
   }
