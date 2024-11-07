@@ -10,7 +10,7 @@ class CardProduto extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
         onTap: () {
-          estadoApp.mostrarDetalhes();
+          estadoApp.mostrarDetalhes(produto["_id"]);
         },
         child: Card(
           child: Column(children: [

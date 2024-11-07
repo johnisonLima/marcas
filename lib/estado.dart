@@ -9,6 +9,9 @@ class Estado extends ChangeNotifier {
   double get altura => _altura;
   double get largura => _largura;
 
+  late int _idProduto;
+  int get idProduto => _idProduto;
+
   void setDimensoes(double altura, double largura) {
     _altura = altura;
     _largura = largura;
@@ -24,8 +27,9 @@ class Estado extends ChangeNotifier {
     return _situacao == Situacao.mostrandoProdutos;
   }
 
-  void mostrarDetalhes() {
+  void mostrarDetalhes(int idProduto) {
     _situacao = Situacao.mostrandoDetalhes;
+    _idProduto = idProduto;
 
     notifyListeners();
   }

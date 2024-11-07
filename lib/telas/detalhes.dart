@@ -23,8 +23,8 @@ class Detalhes extends StatefulWidget {
 enum _EstadoProduto { naoVerificado, temProduto, semProduto }
 
 class _DetalhesState extends State<Detalhes> {
-  late dynamic _feedEstatico;
-  late dynamic _comentariosEstaticos;
+  late dynamic _feedDeProdutos;
+  late dynamic _feedDeComentarios;
 
   _EstadoProduto _temProduto = _EstadoProduto.naoVerificado;
   late dynamic _produto;
@@ -60,22 +60,41 @@ class _DetalhesState extends State<Detalhes> {
   Future<void> _lerFeedEstatico() async {
     String conteudoJson =
         await rootBundle.loadString("lib/recursos/jsons/feed.json");
-    _feedEstatico = await json.decode(conteudoJson);
+    _feedDeProdutos = await json.decode(conteudoJson);
 
     conteudoJson =
         await rootBundle.loadString("lib/recursos/jsons/comentarios.json");
-    _comentariosEstaticos = await json.decode(conteudoJson);
+    _feedDeComentarios = await json.decode(conteudoJson);
 
     _carregarProduto();
     _carregarComentarios();
   }
 
   void _carregarProduto() {
-    // preencher aqui
+    setState(() {
+      _produto = _feedDeProdutos["produtos"]
+          .firstWhere((produto) => produto["_id"] == estadoApp.idProduto);
+    });
+
+    _temProduto = _produto != null
+        ? _EstadoProduto.temProduto
+        : _EstadoProduto.semProduto;
   }
 
   void _carregarComentarios() {
-    // preencher aqui
+    setState(() {
+      _carregandoComentarios = true;
+    });
+
+    _comentarios = [];
+    _feedDeComentarios["comentarios"].where((comentario) {
+      return comentario["feed"] == estadoApp.idProduto;
+    }).forEach((comentario) => {_comentarios.add(comentario)});
+
+    setState(() {
+      _carregandoComentarios = false;
+      _temComentarios = _comentarios.isNotEmpty;
+    });
   }
 
   Widget _exibirMensagemProdutoInexistente() {
@@ -112,12 +131,14 @@ class _DetalhesState extends State<Detalhes> {
 
   Widget _exibirMensagemComentariosInexistentes() {
     return const Expanded(
-        child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+        child: Center(
+            child:
+                Column(mainAxisAlignment: MainAxisAlignment.center, children: [
       Icon(Icons.error, size: 32, color: Colors.red),
       Text("não existem comentários",
           style: TextStyle(
               fontWeight: FontWeight.bold, fontSize: 18, color: Colors.red))
-    ]));
+    ])));
   }
 
   Widget _exibirComentarios() {
